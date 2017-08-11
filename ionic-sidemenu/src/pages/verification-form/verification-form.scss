@@ -1,0 +1,52 @@
+
+.ios, .md {
+
+  page-verification-form  {
+
+    p {
+      font-size: 0.8em;
+      /* color: #d2d2d2; **/
+      color: #488aff;
+    }
+
+    .swiper-slide {
+      display: inline-block;
+    }
+
+    ion-label, .select-text {
+      margin-left: 10px;
+      font-family: "Century Gothic";
+    }
+
+    ion-input, ion-select, ion-textarea {
+      /* background-color: #488aff;  **/
+      padding: 5px 10px;
+      font-family: "Century Gothic";
+      color: #000033;
+    }
+
+    .title.title-md{
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      text-align: center;
+      background-color: #000033;
+      font-family: "Century Gothic";
+    }
+    button{
+      font-family: "Century Gothic";
+    }
+
+    .invalid {
+      border: 1px solid #ea6153;
+    }
+
+    ion-slides { height: initial; }
+
+  }
+
+}
+
+

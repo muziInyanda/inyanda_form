@@ -1,0 +1,99 @@
+<!--
+  Generated template for the VerificationFormPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Head Of Household </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="form-content">
+  <ion-slides #verificationSlider pager style="max-height:400px">
+    <ion-slide>
+      <!-- <p *ngIf="submitAttempt" style="color: #ea6153;">Please fill out all details accurately.</p>-->
+      <ion-list>
+
+        <form [formGroup]="houseHoldHeadForm" >
+
+          <ion-item>
+            <ion-label floating>ID Number</ion-label>
+            <ion-input formControlName="idNumber" type="text"></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Full Names</ion-label>
+            <ion-input formControlName="firstName" type="text" [class.invalid]="!houseHoldHeadForm.controls.firstName.valid && (houseHoldHeadForm.controls.firstName.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="!houseHoldHeadForm.controls.firstName.valid  && (houseHoldHeadForm.controls.firstName.dirty || submitAttempt)">
+            <p>Please enter a valid name.</p>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Surname</ion-label>
+            <ion-input formControlName="lastName" type="text" [class.invalid]="!houseHoldHeadForm.controls.lastName.valid && (houseHoldHeadForm.controls.lastName.dirty || submitAttempt)"></ion-input>
+          </ion-item>
+
+          <ion-item *ngIf="!houseHoldHeadForm.controls.lastName.valid  && (houseHoldHeadForm.controls.lastName.dirty || submitAttempt)">
+            <p>Please enter a valid name.</p>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Citizenship</ion-label>
+            <ion-select formControlName="citizenship" cancelText="Cancel" okText="OK">
+              <ion-option value="South Africa">South Africa</ion-option>
+              <ion-option value="Angola">Angola</ion-option>
+              <ion-option value="Botswana">Botswana</ion-option>
+              <ion-option value="Lesotho">Lesotho</ion-option>
+              <ion-option value="Malawi">Malawi</ion-option>
+              <ion-option value="Mozambique">Mozambique</ion-option>
+              <ion-option value="Namibia">Namibia</ion-option>
+              <ion-option value="Other">Other</ion-option>
+              <ion-option value="Other Country in Africa">Other Country in Africa</ion-option>
+              <ion-option value="Swaziland">Swaziland</ion-option>
+              <ion-option value="Zambia">Zambia</ion-option>
+              <ion-option value="Zimbabwe">Zimbabwe</ion-option>
+
+
+            </ion-select>
+          </ion-item>
+
+          <ion-item>
+            <ion-label floating>Marital</ion-label>
+            <ion-select formControlName="marital" cancelText="Cancel" okText="OK">
+              <ion-option value="Married in COP" checked="true">Married in COP</ion-option>
+              <ion-option value="Married out of COP">Married out of COP</ion-option>
+              <ion-option value="Single">Single</ion-option>
+              <ion-option value="Separated">Separated</ion-option>
+              <ion-option value="Cohabiting">Cohabiting</ion-option>
+              <ion-option value="Divorced">Divorced</ion-option>
+              <ion-option value="Widower/er">Widower/er</ion-option>
+              <ion-option value="Customary Union">Customary Union</ion-option>
+              <ion-option value="Polygamous Union">Polygamous Union</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <button ion-button full color="primary" (click)="takePhoto()"><ion-icon name="camera"></ion-icon>Photo of ID Document </button>
+          <img [src]="imageURL" *ngIf="imageURL" />
+          <button ion-button full color="primary" (click)="maritalCertitificateSave()"> <ion-icon name="camera"></ion-icon>Photo of Marriage Certificate</button>
+
+        </form>
+
+      </ion-list>
+
+      <button ion-button full color="primary" (click)="next()">Next</button>
+
+      <button ion-button full color="primary" (click)="prev()">Previous</button>
+
+      <!--<button ion-button full color="primary" (click)="save()">Submit</button>-->
+
+    </ion-slide>
+  </ion-slides>
+
+</ion-content>
